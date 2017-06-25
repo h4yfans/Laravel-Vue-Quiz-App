@@ -19,6 +19,6 @@ class VideoQuestion extends Model
 
     public function videoQuestionAnswer()
     {
-        return $this->hasMany(VideoQuestionAnswer::class);
+        return $this->hasMany(VideoQuestionAnswer::class,'question_id');
     }
 }

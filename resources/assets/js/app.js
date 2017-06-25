@@ -15,8 +15,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.component('video-questions', require('./components/Questions.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#video'
 });

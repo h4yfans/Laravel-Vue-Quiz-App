@@ -8,12 +8,16 @@
                     <div class="panel-heading">Dashboard</div>
 
                     <div class="panel-body">
-                        <iframe src="https://player.vimeo.com/video/189789787?title=0&byline=0&portrait=0" width="640"
+                        <iframe src="https://player.vimeo.com/video/{{ $video->embed }}?title=0&byline=0&portrait=0"
+                                width="640"
                                 height="337" frameborder="0" webkitallowfullscreen mozallowfullscreen
                                 allowfullscreen></iframe>
                     </div>
-                    <video-question :videoid="{{$video->id}}"></video-question>
+
                 </div>
+            </div>
+            <div id="video">
+                <video-questions :videoid="{{$video->id}}"></video-questions>
             </div>
         </div>
     </div>
@@ -34,34 +38,33 @@
         };
 
         let iframe = document.querySelector('iframe');
-        let player = new Vimeo.Player(iframe,options);
+        let player = new Vimeo.Player(iframe, options);
 
-        player.play();
 
-       /* player.on('ended', function (data) {
-            player.getCurrentTime().then((currentTime) => {
-                if (data.duration === currentTime) {
-                    console.log('bitti')
-                }
+        /* player.on('ended', function (data) {
+         player.getCurrentTime().then((currentTime) => {
+         if (data.duration === currentTime) {
+         console.log('bitti')
+         }
 
-                console.log(data)
-                console.log(currentTime)
+         console.log(data)
+         console.log(currentTime)
 
-            }).catch((error) => {
-                console.log(error)
-            })
-        });*/
+         }).catch((error) => {
+         console.log(error)
+         })
+         });*/
 
-       /* player.on('seeked', function (data) {
-           console.log(data)
-        });
+        /* player.on('seeked', function (data) {
+         console.log(data)
+         });
 
-        player.getDuration().then(function(duration) {
-            console.log(duration)
-            // duration = the duration of the video in seconds
-        }).catch(function(error) {
-            // an error occurred
-        });*/
+         player.getDuration().then(function(duration) {
+         console.log(duration)
+         // duration = the duration of the video in seconds
+         }).catch(function(error) {
+         // an error occurred
+         });*/
 
 
         /* player.getEnded().then(function(ended) {

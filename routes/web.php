@@ -11,12 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('video');
-});
+Route::get('/','VideoController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+## Video
+Route::get('/video/questions', 'VideoController@getQuestions');
 
 
