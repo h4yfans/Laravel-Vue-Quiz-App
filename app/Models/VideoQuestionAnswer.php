@@ -13,6 +13,10 @@ class VideoQuestionAnswer extends Model
         'is_correct'
     ];
 
+    protected $casts = [
+        'is_correct' => 'boolean'
+    ];
+
     public function video()
     {
         return $this->belongsTo(Video::class);

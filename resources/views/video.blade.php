@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div id="video">
-                <video-questions :videoid="{{$video->id}}"></video-questions>
+                <video-questions :videoid="{{$video->id}}" :video-question="{{$videoQuestion}}"></video-questions>
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class VideoQuestionResults extends Model
@@ -26,5 +27,9 @@ class VideoQuestionResults extends Model
     public function question()
     {
         return $this->belongsTo(VideoQuestion::class);
+    }
+
+    public function answer(){
+        return $this->belongsTo(VideoQuestionAnswer::class, 'answer_id');
     }
 }

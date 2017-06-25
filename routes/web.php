@@ -11,14 +11,13 @@
 |
 */
 
+Auth::routes();
 Route::get('/','VideoController@index');
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
 ## Video
 Route::get('/video/questions', 'VideoController@getQuestions');
-
-
+Route::post('user/video/question/answer', 'VideoController@postUserAnswer');
