@@ -3,7 +3,8 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Answer the questions! <span class="pull-right"></span>
+                    <div class="panel-heading">Answer the questions
+                        <span class="pull-right">{{questionIndex}} / {{videoQuestion.length}}</span>
                     </div>
                     <div class="panel-body">
                         <div v-for="(question, index) in questions">

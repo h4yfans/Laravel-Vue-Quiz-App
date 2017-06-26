@@ -12,8 +12,7 @@
 */
 
 Auth::routes();
-Route::get('/','VideoController@index');
-
+Route::get('/','VideoController@index')->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
