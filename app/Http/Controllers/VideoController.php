@@ -17,8 +17,9 @@ class VideoController extends Controller
      */
     public function index()
     {
-        $video         = Video::find(1);
-        $videoQuestion = VideoQuestion::where('video_id', 1)->with('videoQuestionAnswer')->get();
+        $videoID       = mt_rand(1, 3);
+        $video         = Video::find($videoID);
+        $videoQuestion = VideoQuestion::where('video_id', $videoID)->with('videoQuestionAnswer')->get();
 
         return view('video', compact('video', 'videoQuestion'));
     }
@@ -49,8 +50,10 @@ class VideoController extends Controller
 
         $questionAnswer = $userQuestionAnswer->answer();
 
-        if ((int)$questionAnswer->first()->is_correct === 1){
-            return response()->json(['status' => true, 'message' => $userQuestionAnswer->question()->first()->question]);
+        if ((int)$questionAnswer->first()->is_correct === 1) {
+            return response()->json(['status'  => true,
+                                     'message' => $userQuestionAnswer->question()->first()->question
+            ]);
         }
 
         return response()->json(['status' => false, 'message' => $userQuestionAnswer->question()->first()->question]);

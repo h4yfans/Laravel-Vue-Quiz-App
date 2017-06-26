@@ -25,8 +25,7 @@
                                                    :name="index"
                                                    v-model="userResponses[index]"
                                                    @click="choices(question.id,choice.id)"> {{choice.answer}}
-                                            {{index}}
-                                            {{choice.is_correct}}
+                                            <strong>{{choice.is_correct}}</strong>
                                         </label>
                                     </li>
                                 </ol>
@@ -52,7 +51,7 @@
                             <p>
                                 Total score: {{ score() }} / {{ questions.length }}
                             </p>
-                            <ul class="list-group" >
+                            <ul class="list-group">
                                 <li class="list-group-item"
                                     v-for="result in results"
                                     :class="result.status ? 'list-group-item-success' :'list-group-item-danger'">
@@ -125,3 +124,10 @@
         }
     }
 </script>
+
+
+<style>
+    strong {
+        color: rgba(255, 35, 5, 0.67);
+    }
+</style>

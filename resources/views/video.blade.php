@@ -37,67 +37,16 @@
             seconds: 3,
         };
 
+        $('#video').hide();
         let iframe = document.querySelector('iframe');
         let player = new Vimeo.Player(iframe, options);
 
 
-        /* player.on('ended', function (data) {
-         player.getCurrentTime().then((currentTime) => {
-         if (data.duration === currentTime) {
-         console.log('bitti')
-         }
+        player.on('ended', function (data) {
+            $('#video').fadeIn();
+        }).catch((error) => {
 
-         console.log(data)
-         console.log(currentTime)
-
-         }).catch((error) => {
-         console.log(error)
-         })
-         });*/
-
-        /* player.on('seeked', function (data) {
-         console.log(data)
-         });
-
-         player.getDuration().then(function(duration) {
-         console.log(duration)
-         // duration = the duration of the video in seconds
-         }).catch(function(error) {
-         // an error occurred
-         });*/
-
-
-        /* player.getEnded().then(function(ended) {
-         // ended = whether or not the video has ended
-         console.log('test');
-         }).catch(function(error) {
-         // an error occurred
-         });
-
-
-         player.getDuration().then(function(duration) {
-         // duration = the duration of the video in seconds
-         console.log(duration)
-         }).catch(function(error) {
-         // an error occurred
-         });
-
-
-
-
-         player.on('currentTime ', function(data) {
-
-         console.log(data)
-         });
-
-         player.on('finish', function(data) {
-         console.log('finish?')
-
-         });
-
-
-
-         */
+        });
     </script>
 
 @endsection
