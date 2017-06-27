@@ -18,7 +18,7 @@ class CreateVideoQuestionResultsTable extends Migration
             $table->integer('user_id');
             $table->integer('video_id');
             $table->integer('question_id');
-            $table->integer('answer_id');
+            $table->integer('answer_id')->nullable();
             $table->timestamps();
         });
     }

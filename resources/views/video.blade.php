@@ -17,7 +17,10 @@
                 </div>
             </div>
             <div id="video">
-                <video-questions :videoid="{{$video->id}}" :video-question="{{$videoQuestion}}"></video-questions>
+                <video-questions
+                        :videoid="{{$video->id}}"
+                        :video-question="{{$videoQuestion}}"
+                        :has-a-record="{{$authUserHasARecordForThisVideoQuestions}}"></video-questions>
             </div>
         </div>
     </div>
@@ -44,8 +47,6 @@
 
         player.on('ended', function (data) {
             $('#video').fadeIn();
-        }).catch((error) => {
-
         });
     </script>
 

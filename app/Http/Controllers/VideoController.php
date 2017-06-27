@@ -17,11 +17,17 @@ class VideoController extends Controller
      */
     public function index()
     {
-        $videoID       = mt_rand(1, 3);
-        $video         = Video::find($videoID);
+        $videoID  = mt_rand(1, 3);
+        $video    = Video::find($videoID);
+        $authUser = auth()->user();
+
         $videoQuestion = VideoQuestion::where('video_id', $videoID)->with('videoQuestionAnswer')->get();
 
-        return view('video', compact('video', 'videoQuestion'));
+        $authUserHasARecordForThisVideoQuestions = VideoQuestionResults::where(['user_id'  => $authUser->id,
+                                                                                'video_id' => $videoID
+        ])->get();
+
+        return view('video', compact('video', 'videoQuestion', 'authUserHasARecordForThisVideoQuestions'));
     }
 
     public function getQuestions(Request $request)

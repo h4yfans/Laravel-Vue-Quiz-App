@@ -2,7 +2,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
+                <div class="alert alert-info" v-if="this.hasARecord.length!==0">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>Information</strong>
+                    You watched this video before.
+                    You have already answered video questions. You can update your answers by watching the video questions again.
+                </div>
+
+                <div class="panel" :class="this.hasARecord.length==0 ? 'panel-info' : 'panel-warning'">
                     <div class="panel-heading">Answer the questions
                         <span class="pull-right">{{questionIndex}} / {{videoQuestion.length}}</span>
                     </div>
@@ -39,7 +46,6 @@
                                     </button>
                                     <button class="btn btn-success" @click="next(); postUserChoice()">
                                         <span class="glyphicon glyphicon-arrow-right"></span>
-
                                         next
                                     </button>
                                 </div>
@@ -75,7 +81,7 @@
     import axios from 'axios';
 
     export default {
-        props: ['videoid', 'videoQuestion'],
+        props: ['videoid', 'videoQuestion', 'hasARecord'],
 
         data(){
             return {
@@ -86,6 +92,9 @@
                 currentQuestion: 0,
                 results: [],
             }
+        },
+        created(){
+            console.log(this.hasARecord.length)
         },
 
         methods: {

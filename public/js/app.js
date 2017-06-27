@@ -1732,11 +1732,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['videoid', 'videoQuestion'],
+    props: ['videoid', 'videoQuestion', 'hasARecord'],
 
     data: function data() {
         return {
@@ -1747,6 +1753,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             currentQuestion: 0,
             results: []
         };
+    },
+    created: function created() {
+        console.log(this.hasARecord.length);
     },
 
 
@@ -31969,8 +31978,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "row"
   }, [_c('div', {
     staticClass: "col-md-8 col-md-offset-2"
-  }, [_c('div', {
-    staticClass: "panel panel-default"
+  }, [(this.hasARecord.length !== 0) ? _c('div', {
+    staticClass: "alert alert-info"
+  }, [_c('button', {
+    staticClass: "close",
+    attrs: {
+      "type": "button",
+      "data-dismiss": "alert",
+      "aria-hidden": "true"
+    }
+  }, [_vm._v("×")]), _vm._v(" "), _c('strong', [_vm._v("Information")]), _vm._v("\n                You watched this video before.\n                You have already answered video questions. You can update your answers by watching the video questions again.\n            ")]) : _vm._e(), _vm._v(" "), _c('div', {
+    staticClass: "panel",
+    class: this.hasARecord.length == 0 ? 'panel-info' : 'panel-warning'
   }, [_c('div', {
     staticClass: "panel-heading"
   }, [_vm._v("Answer the questions\n                    "), _c('span', {
@@ -32035,7 +32054,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_c('span', {
       staticClass: "glyphicon glyphicon-arrow-right"
-    }), _vm._v("\n\n                                    next\n                                ")])])])])
+    }), _vm._v("\n                                    next\n                                ")])])])])
   }), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
